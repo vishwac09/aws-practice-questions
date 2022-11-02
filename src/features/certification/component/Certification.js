@@ -20,8 +20,8 @@ function Certification() {
   }
 
   return (
-    <div className="m-3">
-      <Card bg="light" text="dark" className="w-100">
+    <div className="certification m-3">
+      <Card bg="light" text="dark" className="certification-info w-100">
         <Card.Header as="h5">{activeCert.title}</Card.Header>
         <Card.Body>
           <Row>
@@ -50,7 +50,7 @@ function Certification() {
           </Row>
         </Card.Body>
       </Card>
-      <div className="w-100">
+      <div className="certification-exam w-100">
         {exam.start === true ?
           <Exam /> : <React.Fragment />
         }

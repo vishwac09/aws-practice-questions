@@ -3,12 +3,12 @@ import { createSlice } from '@reduxjs/toolkit'
 export const exam = createSlice({
   name: 'exam',
   initialState: {
-    attempted: 0,
+    current: 0,
     start: false,
   },
   reducers: {
     markQuestions: (state, action) => {
-      state.value +=  1
+      state.current +=  1
     },
     startExam: (state, action) => {
       state.start = action.payload;
