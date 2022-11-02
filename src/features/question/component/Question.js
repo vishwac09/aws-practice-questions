@@ -3,12 +3,10 @@ import Form from 'react-bootstrap/Form';
 
 function Question(props) {
   const question = props.question;
+  const answerKey = props.answerKey;
   const choices = question.choices;
-
-  const markChoice = (number, choice) => {
-    console.log('QN', number);
-    console.log('QNC', choice);
-  }
+  const userSelectedChoice = answerKey[question.number] !== undefined 
+    ? answerKey[question.number] : -1;
 
   if (question) {
     return (
@@ -19,21 +17,22 @@ function Question(props) {
           </strong>
         </div>
         {
-          Object.keys(choices).map(option => {
+          Object.keys(choices).map(choice => {
             return (
               <Form.Check 
                 key={Math.random()}
-                className="question-option my-2"
+                className="question-option my-3"
                 type="radio"
                 name="question"
               >
                 <Form.Check.Input 
                   type="radio"
                   name="question"
-                  onChange={(e) => markChoice(question.number, option)}
-                  checked={option === 'a' ? 1 : 0}
+                  onChange={(e) => props.markChoice(question.number, choice)}
+                  checked={choice === userSelectedChoice ? 1 : 0}
+                  isValid={choice === userSelectedChoice && choice === question.answer ? 1 : 0}
                 />
-                <Form.Check.Label>{choices[option]}</Form.Check.Label>
+                <Form.Check.Label>{choices[choice]}</Form.Check.Label>
               </Form.Check>
             );
           })

@@ -16,7 +16,7 @@ function Certification() {
   const dispatch = useDispatch();
   // Method sets the exam status
   const setExamStatus = (status) => {
-    dispatch(startExam(status));
+    dispatch(startExam({action: status, total: activeCert.format}));
   }
 
   return (
@@ -41,10 +41,10 @@ function Certification() {
                 })
               }
               <Button className="mb-1 mb-sm-1" onClick={e => setExamStatus(true)} variant="primary">
-                Start Practice Exam
+                Start
               </Button>{' '}
               <Button className="mb-1 mb-sm-1" onClick={e => setExamStatus(false)} variant="danger">
-                End Exam
+                End
               </Button>
             </Col>
           </Row>

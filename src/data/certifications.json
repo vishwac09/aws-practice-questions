@@ -2,7 +2,7 @@
   "certified_cloud_practitioner" : {
     "title": "Certified Cloud Practitioner",
     "length": 5400,
-    "format": 65,
+    "format": 2,
     "active": true,
     "href": "#cloud-practitioner",
     "description": [
