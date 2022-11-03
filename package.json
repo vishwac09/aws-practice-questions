@@ -2,7 +2,7 @@
   "name": "aws-practice-questions",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://vishwac09.github.io",
+  "homepage": "https://vishwac09.github.io/aws-practice-questions",
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
     "@testing-library/jest-dom": "^5.14.1",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "yarn build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
