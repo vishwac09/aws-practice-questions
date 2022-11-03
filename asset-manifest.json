@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/aws-practice-questions/static/css/main.55e759ff.css",
-    "main.js": "/aws-practice-questions/static/js/main.87401f85.js",
-    "index.html": "/aws-practice-questions/index.html",
-    "main.55e759ff.css.map": "/aws-practice-questions/static/css/main.55e759ff.css.map",
-    "main.87401f85.js.map": "/aws-practice-questions/static/js/main.87401f85.js.map"
+    "main.css": "./static/css/main.55e759ff.css",
+    "main.js": "./static/js/main.b970c7a4.js",
+    "index.html": "./index.html",
+    "main.55e759ff.css.map": "./static/css/main.55e759ff.css.map",
+    "main.b970c7a4.js.map": "./static/js/main.b970c7a4.js.map"
   },
   "entrypoints": [
     "static/css/main.55e759ff.css",
-    "static/js/main.87401f85.js"
+    "static/js/main.b970c7a4.js"
   ]
 }
