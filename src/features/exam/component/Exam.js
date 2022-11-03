@@ -51,14 +51,14 @@ function Exam() {
           answerKey={examStatus.answerKey}
         />
         <div className="exam-nav m-2 text-center">
-          <Button className="mb-1 mb-sm-1" onClick={e => toggleQuestions('prev')} variant="warning">
+          <Button className="mb-1 mb-sm-1" onClick={e => toggleQuestions('prev')} variant="primary">
             Prev
-          </Button>{' '}
-          <Button className="mb-1 mb-sm-1" onClick={e => toggleQuestions('next')} variant="success">
-            Next
           </Button>{' '}
           <Button className="mb-1 mb-sm-1" onClick={e => console.log(1)} variant="info">
             Result
+          </Button>{' '}
+          <Button className="mb-1 mb-sm-1" onClick={e => toggleQuestions('next')} variant="primary">
+            Next
           </Button>
         </div>
       </Card>

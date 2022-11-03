@@ -26,7 +26,7 @@ function Certification() {
         <Card.Body>
           <Row>
             <Col xs={12} sm={3} md={3}>
-              <Card.Img style={{width: '100%'}} variant="top" src={"/images/" + activeCert.img} />
+              <Card.Img style={{width: '100%'}} variant="top" src={"./images/" + activeCert.img} />
             </Col>
             <Col xs={12} sm={9} md={9}>
               <Card.Text>{activeCert.description.join(' ')}</Card.Text>
