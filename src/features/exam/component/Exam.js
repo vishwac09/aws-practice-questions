@@ -41,7 +41,7 @@ function Exam() {
     <div className="mt-5">
       {userWarning ? (
       <Alert variant={'danger'}>
-            Please Select an option from below.
+        Please Select an option from below to proceed.
       </Alert>) : (<React.Fragment />)
       }
       <Card className="exam">
