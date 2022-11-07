@@ -21,7 +21,7 @@ export const exam = createSlice({
     startExam: (state, action) => {
       state.start = action.payload.action
       if (state.start === false) {
-        state.current = 0;
+        state.current = 1;
       }
       state.total = action.payload.total
     },

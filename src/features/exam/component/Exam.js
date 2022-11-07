@@ -24,24 +24,26 @@ function Exam() {
   const toggleQuestions = (action) => {
     if (action === 'next' && examStatus.answerKey[examStatus.current] === undefined) {
       setUserWarning(true);
-      return;
+    } else {
+      setUserWarning(false);
+      dispatch(questionsAttempted({
+        action
+      }));
     }
-    setUserWarning(false);
-    dispatch(questionsAttempted({
-      action
-    }));
   }
 
   let questions = []
+  console.log({activeCert});
   if (activeCert.file.trim() !== "") {
     questions = require('../../../data/' + activeCert.file);
   }
+  console.log({questions})
 
   return (
     <div className="mt-5">
       {userWarning ? (
       <Alert variant={'danger'}>
-        Please Select an option from below to proceed.
+        Please select an option from below to proceed.
       </Alert>) : (<React.Fragment />)
       }
       <Card className="exam">
@@ -54,7 +56,7 @@ function Exam() {
           <Button className="mb-1 mb-sm-1" onClick={e => toggleQuestions('prev')} variant="primary">
             Prev
           </Button>{' '}
-          <Button className="mb-1 mb-sm-1" onClick={e => console.log(1)} variant="info">
+          <Button className="mb-1 mb-sm-1" onClick={e => console.log(1)} variant="secondary">
             Result
           </Button>{' '}
           <Button className="mb-1 mb-sm-1" onClick={e => toggleQuestions('next')} variant="primary">
