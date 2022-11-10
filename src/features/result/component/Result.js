@@ -7,7 +7,7 @@ function Result() {
   const {result} = state.exam;
   if (state.exam.start === true) {
     return (
-      <div>
+      <div className="">
         {result.correct > result.incorrect ? 
           <React.Fragment>
             <h1>
@@ -27,13 +27,16 @@ function Result() {
             </h3>
           </React.Fragment>
         }
+        <h3>
+          Attempted <Badge bg="primary">{Object.keys(state.exam.answerKey).length}</Badge> 
+        </h3>
       </div>
     )
   } 
   else {
     return (
       <div className="text-center mt-5">
-        <h4>Please start on exam then click on Result to check score.</h4>
+        <h4>Please start the exam then click on Result to check your score.</h4>
       </div>
     );
   }

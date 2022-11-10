@@ -7,6 +7,7 @@ export const exam = createSlice({
     start: false,
     total: 0,
     answerKey: {},
+    answered: 0,
     result: {
       correct: 0,
       incorrect: 0,
@@ -26,10 +27,16 @@ export const exam = createSlice({
       state.start = action.payload.action
       if (state.start === false) {
         state.current = 1;
+        state.answered = 0;
+        state.result.incorrect = 0;
+        state.result.correct = 0;
       }
       state.total = action.payload.total
     },
     setAnswerKey: (state, action) => {
+      if (state.answerKey[action.payload.number] === undefined) {
+        state.answered += 1;
+      }
       state.answerKey[action.payload.number] = action.payload.choice
     },
     setResult: (state, action) => {

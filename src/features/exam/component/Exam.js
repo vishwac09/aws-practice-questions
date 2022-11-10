@@ -49,11 +49,14 @@ function Exam() {
 
   /**
    * Calculate the result.
+   *
    * @param array questions 
+   *   List of all questions.
    */
   const checkResult = (questions) => {
     let correct = 0, incorrect = 0;
     const {answerKey} = exam;
+    dispatch(setResult({incorrect: incorrect, correct: correct}));
     Object.keys(answerKey).forEach((qNum) => {
       if (questions[qNum-1].answer === answerKey[qNum]) {
         correct = correct + 1;
@@ -61,7 +64,7 @@ function Exam() {
         incorrect = incorrect + 1;
       }
     });
-    dispatch(setResult({incorrect: incorrect, correct: correct})); 
+    dispatch(setResult({incorrect: incorrect, correct: correct}));
   }
 
   let questions = []
@@ -86,12 +89,13 @@ function Exam() {
           <Button className="mb-1 mb-sm-1" onClick={e => toggleQuestions('prev')} variant="primary">
             Prev
           </Button>{' '}
-          <Button className="mb-1 mb-sm-1" onClick={e => checkResult(questions)} variant="secondary">
-            Result
-          </Button>{' '}
           <Button className="mb-1 mb-sm-1" onClick={e => toggleQuestions('next')} variant="primary">
             Next
-          </Button>
+          </Button>{' '}
+          {exam.answered >= exam.total ? 
+            <Button className="mb-1 mb-sm-1" onClick={e => checkResult(questions)} variant="secondary">
+              Result
+            </Button> : <React.Fragment />}
         </div>
       </Card>
     </div>

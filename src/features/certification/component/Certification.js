@@ -44,7 +44,7 @@ function Certification() {
             </Card.Body>
           </Card>
         </div>
-        <div className="certification-result col-md-8 col-sm-6 col-xs-12">
+        <div className="certification-result mt-5 col-md-8 col-sm-6 col-xs-12">
           <Result />
         </div>
       </div>
