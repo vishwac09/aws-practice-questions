@@ -29,13 +29,12 @@ function Question(props) {
                   type="radio"
                   name="question"
                   checked={choice === userSelectedChoice ? 1 : 0}
-                  isValid={choice === userSelectedChoice && choice === question.answer ? 1 : 0}
                   onChange={(e) => props.markChoice(question.number, choice)}
                 />
-                <Form.Check.Label
-                  onClick={(e) => props.markChoice(question.number, choice)}
-                >
-                  {choices[choice]}
+                  <Form.Check.Label
+                    onClick={(e) => props.markChoice(question.number, choice)}
+                  >
+                    {choices[choice]}
                 </Form.Check.Label>
               </Form.Check>
             );

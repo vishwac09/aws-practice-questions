@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Button, Card, Alert } from 'react-bootstrap'
 
 import {Question} from '../../question';
-import {questionsAttempted, setAnswerKey} from '../../exam';
+import {questionsAttempted, setAnswerKey, setResult} from '../../exam';
 
 function Exam() {
   const [userWarning, setUserWarning] = useState(false)
@@ -13,16 +13,31 @@ function Exam() {
   const dispatch = useDispatch();
 
   const activeCert = state.certificate.active;
-  const examStatus = state.exam;
+  const {exam} = state;
 
+  /**
+   * Register the option selected by the user against the question.
+   *
+   * @param int number
+   *   The question number selected by the user.
+   *
+   * @param string choice 
+   *   The option selected by the user.
+   */
   const markChoice = (number, choice) => {
     dispatch(setAnswerKey({
       number, choice
     }));
   };
 
+  /**
+   * Toggle the questions shown to the user.
+   *
+   * @param string action
+   *   The text of the button which is clciked.
+   */
   const toggleQuestions = (action) => {
-    if (action === 'next' && examStatus.answerKey[examStatus.current] === undefined) {
+    if (action === 'next' && exam.answerKey[exam.current] === undefined) {
       setUserWarning(true);
     } else {
       setUserWarning(false);
@@ -32,12 +47,27 @@ function Exam() {
     }
   }
 
+  /**
+   * Calculate the result.
+   * @param array questions 
+   */
+  const checkResult = (questions) => {
+    let correct = 0, incorrect = 0;
+    const {answerKey} = exam;
+    Object.keys(answerKey).forEach((qNum) => {
+      if (questions[qNum-1].answer === answerKey[qNum]) {
+        correct = correct + 1;
+      } else {
+        incorrect = incorrect + 1;
+      }
+    });
+    dispatch(setResult({incorrect: incorrect, correct: correct})); 
+  }
+
   let questions = []
-  console.log({activeCert});
   if (activeCert.file.trim() !== "") {
     questions = require('../../../data/' + activeCert.file);
   }
-  console.log({questions})
 
   return (
     <div className="mt-5">
@@ -49,14 +79,14 @@ function Exam() {
       <Card className="exam">
         <Question 
           markChoice={markChoice}
-          question={questions[examStatus.current - 1]}
-          answerKey={examStatus.answerKey}
+          question={questions[exam.current - 1]}
+          answerKey={exam.answerKey}
         />
         <div className="exam-nav m-2 text-center">
           <Button className="mb-1 mb-sm-1" onClick={e => toggleQuestions('prev')} variant="primary">
             Prev
           </Button>{' '}
-          <Button className="mb-1 mb-sm-1" onClick={e => console.log(1)} variant="secondary">
+          <Button className="mb-1 mb-sm-1" onClick={e => checkResult(questions)} variant="secondary">
             Result
           </Button>{' '}
           <Button className="mb-1 mb-sm-1" onClick={e => toggleQuestions('next')} variant="primary">

@@ -6,7 +6,11 @@ export const exam = createSlice({
     current: 1,
     start: false,
     total: 0,
-    answerKey: {}
+    answerKey: {},
+    result: {
+      correct: 0,
+      incorrect: 0,
+    }
   },
   reducers: {
     questionsAttempted: (state, action) => {
@@ -27,6 +31,10 @@ export const exam = createSlice({
     },
     setAnswerKey: (state, action) => {
       state.answerKey[action.payload.number] = action.payload.choice
+    },
+    setResult: (state, action) => {
+      state.result.correct = action.payload.correct;
+      state.result.incorrect = action.payload.incorrect;
     }
   }
 });
@@ -35,7 +43,8 @@ export const exam = createSlice({
 export const { 
   questionsAttempted,
   startExam,
-  setAnswerKey
+  setAnswerKey,
+  setResult
 } = exam.actions
 
 export default exam.reducer
