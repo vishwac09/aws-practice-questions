@@ -38,6 +38,7 @@ yarn start
 
 ### Project Structure
 
+```bash
 src
 ├── App.js
 ├── data
@@ -63,6 +64,7 @@ src
         ├── _custom.scss
         ├── _variables.scss
         └── _variables_override.scss
+```
 
 The application layout is Two column (sidebar and a main content region). The sidebar list the total number of certifications enabled/available, clicking the certification highlight's and starts the corresponding certification exam.
 
