@@ -6,6 +6,8 @@ I have recently also created some notes for the [AWS Cloud practitioner](https:/
 
 > I am a newbie in REACT. If you wish to contribute to the application or find any issues or an incorrectly implemented logic please raise an issue or create a pull request. Happy to learn from the experts.
 
+Site live on [GH Pages](https://vishwac09.github.io/aws-practice-questions/)
+
 # Getting Started
 
 ## Table of Contents
