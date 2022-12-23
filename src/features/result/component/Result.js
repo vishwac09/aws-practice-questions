@@ -18,6 +18,9 @@ function Result() {
         <p className="h3">
           Attempted <Badge bg="primary">{Object.keys(state.exam.answerKey).length}</Badge> 
         </p>
+        <p className="h3">
+          Total <Badge bg="primary">{state.exam.total}</Badge>
+        </p>
       </div>
     )
   } 
