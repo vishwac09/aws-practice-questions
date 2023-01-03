@@ -1,8 +1,8 @@
 # AWS Practice Question
 
-React application allowing users to practice the AWS certification examination questions in a __Multiple Choice__ question format. Built this small application to learn and practice react concepts, components, theme layer, redux etc and also to get ready for the AWS certifications.
+React application allowing users to practice the AWS certification questions in a __Multiple Choice__ format. Built this small application to learn react concepts like components, theme layer, redux, view-model etc and also to get ready for the AWS certifications.
 
-I have recently also created some notes for the [AWS Cloud practitioner](https://github.com/vishwac09/aws-cloud-practitioner#other-services) certification. I will add more questions, notes and guides on clearing more AWS certifications.
+Created notes for the [AWS Cloud practitioner](https://github.com/vishwac09/aws-cloud-practitioner#other-services) certification exam, will add more info, questions, notes and guides for other AWS certifications.
 
 > I am a newbie in REACT. If you wish to contribute to the application or find any issues or an incorrectly implemented logic please raise an issue or create a pull request. Happy to learn from the experts.
 
@@ -29,7 +29,7 @@ cd aws-practice-questions
 yarn install
 ```
 
-<ins>Install the dependencies</ins>
+<ins>Start the application</ins>
 
 ```sh
 yarn start
